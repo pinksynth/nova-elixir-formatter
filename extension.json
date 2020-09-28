@@ -1,0 +1,48 @@
+{
+    "identifier": "sammytaylordev.ElixirFormatter",
+    "name": "Elixir Formatter",
+    "organization": "sammytaylordev",
+    "description": "Provides basic formatting functionality for the Elixir language using `mix format`. Formats on save by default.",
+    "version": "1.0",
+    "categories": ["commands"],
+    "bugs": "https://github.com/pinksynth/nova-elixir-formatter/issues",
+
+    "main": "main.js",
+
+    "activationEvents": [ "onLanguage:elixir" ],
+
+    "entitlements": {
+        "filesystem": "readwrite",
+        "process": true
+    },
+
+    "commands": {
+        "editor": [
+            {
+                "title": "Format Elixir Document",
+                "command": "formatElixirDocument",
+                "when": "editorHasFocus",
+                "filters": {
+                    "syntaxes": ["elixir"]
+                }
+            }
+        ]
+    },
+
+    "config": [
+        {
+            "key": "sammytaylordev.ElixirFormatOnSave.mix_binary",
+            "title": "Elixir Mix binary",
+            "description": "Which binary to use for Elixir's `mix` command. Defaults to `/usr/local/bin/mix`",
+            "type": "string",
+            "default": "/usr/local/bin/mix"
+        },
+        {
+            "key": "sammytaylordev.ElixirFormatOnSave.enabled",
+            "title": "Format on Save?",
+            "description": "Should the extension format Elixir documents automatically before saving?",
+            "type": "boolean",
+            "default": true
+        }
+    ]
+}
